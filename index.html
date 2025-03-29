@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃什麼？ - 餐廳推薦系統</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>今天吃什麼？</h1>
+            <div class="nav-buttons">
+                <button id="historyBtn"><i class="fas fa-history"></i></button>
+                <button id="addRestaurantBtn"><i class="fas fa-plus"></i></button>
+            </div>
+        </header>
+
+        <!-- 主畫面：餐廳卡片 -->
+        <div id="mainScreen" class="screen active">
+            <div id="cardContainer">
+                <div class="card">
+                    <div class="loading">載入中...</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="dislikeBtn" class="action-btn dislike"><i class="fas fa-times"></i></button>
+                <button id="likeBtn" class="action-btn like"><i class="fas fa-heart"></i></button>
+            </div>
+        </div>
+
+        <!-- 歷史記錄畫面 -->
+        <div id="historyScreen" class="screen">
+            <h2>用餐歷史</h2>
+            <div id="historyList">
+                <!-- 歷史記錄會在這裡動態生成 -->
+                <p class="empty-message">載入中...</p>
+            </div>
+            <button id="backFromHistoryBtn" class="back-btn">返回</button>
+        </div>
+
+        <!-- 新增餐廳畫面 -->
+        <div id="addRestaurantScreen" class="screen">
+            <h2>新增餐廳</h2>
+            <form id="addRestaurantForm">
+                <div class="form-group">
+                    <label for="restaurantName">餐廳名稱</label>
+                    <input type="text" id="restaurantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantType">餐廳類型</label>
+                    <select id="restaurantType">
+                        <option value="">請選擇類型</option>
+                        <option value="中式">中式</option>
+                        <option value="日式">日式</option>
+                        <option value="韓式">韓式</option>
+                        <option value="義式">義式</option>
+                        <option value="美式">美式</option>
+                        <option value="泰式">泰式</option>
+                        <option value="越式">越式</option>
+                        <option value="港式">港式</option>
+                        <option value="印度料理">印度料理</option>
+                        <option value="墨西哥料理">墨西哥料理</option>
+                        <option value="火鍋">火鍋</option>
+                        <option value="燒烤">燒烤</option>
+                        <option value="小吃">小吃</option>
+                        <option value="早午餐">早午餐</option>
+                        <option value="咖啡廳">咖啡廳</option>
+                        <option value="甜點">甜點</option>
+                        <option value="素食">素食</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantLocation">地點</label>
+                    <input type="text" id="restaurantLocation" placeholder="地址或區域">
+                </div>
+                <div class="form-group">
+                    <label for="restaurantImage">圖片網址 (選填)</label>
+                    <input type="url" id="restaurantImage" placeholder="http://...">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="backFromAddBtn" class="back-btn">取消</button>
+                    <button type="submit" class="submit-btn">新增</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 提示訊息 -->
+    <div id="notification" class="notification">
+        <p id="notificationText"></p>
+    </div>
+
+    <!-- 腳本 -->
+    <script src="app.js"></script>
+</body>
+</html>
